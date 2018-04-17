@@ -137,10 +137,10 @@ describe('puppeteer', () => {
     const ppp = await page.$('e2e-attribute-basic #data-aa');
     await ppp.screenshot({ path: 'test/screens/item.png' });
     
-    const ggg = await page.evaluate(
-      () => document.querySelector('e2e-attribute-basic').innerHTML,
-    );
-    console.log('ggg>', ggg);
+   //  const ggg = await page.evaluate(
+   //    () => document.querySelector('e2e-attribute-basic').innerHTML,
+   //  );
+    // console.log('ggg>', ggg);
     
   });
   

@@ -19,13 +19,13 @@ describe('app', () => {
     });
 
     it('should not render any content if there is not a match', async () => {
-      console.log('element.innerHtml>', element.innerHTML);
-      debugger;
+      // console.log('element.innerHtml>', element.innerHTML);
+      // debugger;
       // await flush(element);
       
       const pElement = element.querySelector('ion-title'); 
-      console.log('pElement.innerHtml>', pElement.innerHTML);
-      console.log('pElement.textContent>', pElement.textContent);            
+      // console.log('pElement.innerHtml>', pElement.innerHTML);
+      // console.log('pElement.textContent>', pElement.textContent);            
       expect(pElement.textContent).toEqual('Modal Form');     
     })    
   });
