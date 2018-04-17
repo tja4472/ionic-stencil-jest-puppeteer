@@ -47,6 +47,10 @@ exports.devServer = {
 };
 ```
 
+## VS Code Extension
+
+https://github.com/jest-community/vscode-jest
+
 # References
 
 * https://github.com/ionic-team/ionic-pwa-toolkit
@@ -55,6 +59,7 @@ exports.devServer = {
 * https://facebook.github.io/jest/
 * https://github.com/smooth-code/jest-puppeteer
 * https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer
+* https://github.com/jest-community/vscode-jest
 
 # Jest
 
@@ -122,13 +127,14 @@ npm run build --dev
 ```
 
 test\examples\puppeteer.spec.ts
+
 ```typescript
 import { Browser, Page } from 'puppeteer';
 
 declare const browser: Browser;
 declare var page: Page;
 
-describe('Puppeteer Tests - Google', () => {    
+describe('Puppeteer Tests - Google', () => {
   beforeAll(async () => {
     await page.goto('https://google.com');
   });
@@ -151,11 +157,13 @@ describe('Puppeteer Tests - Ionic PWA Toolkit', () => {
 ```
 
 Run tests
+
 ```bash
 npm test puppeteer.spec
 ```
 
 # Problems
+
     "@types/expect-puppeteer": "2.2.1",
     Has incorrect definition for toMatchElement
     Disallows
