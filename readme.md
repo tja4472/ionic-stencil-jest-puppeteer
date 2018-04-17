@@ -58,7 +58,7 @@ exports.devServer = {
 
 # Jest
 
-jest.spec.ts
+test\examples\jest.spec.ts
 
 ```typescript
 describe('Jest Tests', () => {
@@ -121,7 +121,7 @@ Update app.
 npm run build --dev
 ```
 
-puppeteer.spec.ts
+test\examples\puppeteer.spec.ts
 ```typescript
 import { Browser, Page } from 'puppeteer';
 

@@ -9,7 +9,7 @@ describe('Puppeteer Tests - Google', () => {
   });
 
   it('should display "google" text on page', async () => {
-    await expect(page).toMatch('googlea');
+    await expect(page).toMatch('google');
   });
 });
 
@@ -20,6 +20,6 @@ describe('Puppeteer Tests - Ionic PWA Toolkit', () => {
   });
 
   it('should display "Ionic PWA Toolkit" text on page', async () => {
-    await expect(page).toMatch('Ionic PWA Toolkita');
+    await expect(page).toMatch('Ionic PWA Toolkit');
   });
 });
