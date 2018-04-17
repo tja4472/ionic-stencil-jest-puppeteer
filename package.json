@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.1",
   "description": "stencil jest puppeteer",
+  "repository": {
+    "url" : "https://github.com/tja4472/stencil-jest-puppeteer"
+  },
   "files": [
     "dist/"
   ],

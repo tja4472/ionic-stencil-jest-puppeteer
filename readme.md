@@ -1,3 +1,52 @@
+# Setup
+
+package.json
+
+```json
+"devDependencies": {
+  "@types/jest": "22.2.3",
+  "@types/puppeteer": "1.2.1",
+  "jest": "22.4.3",
+  "jest-puppeteer": "2.3.0",
+  "jest-puppeteer-preset": "2.3.0",
+  "puppeteer": "1.3.0"
+},
+"jest": {
+  "preset": "jest-puppeteer-preset",
+  "transform": {
+    "^.+\\.(js|ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+  },
+  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "json",
+    "jsx"
+  ]
+}
+```
+
+jest-puppeteer.config.js
+
+```js
+module.exports = {
+  server: {
+    command: 'npm run serve --config stencil.config.e2e.js --no-open',
+  },
+};
+```
+
+stencil.config.e2e.js
+
+```js
+exports.devServer = {
+  root: 'www',
+  // watchGlob: '**/**'
+  httpPort: 3335,
+};
+```
+
 # References
 
 * https://github.com/ionic-team/ionic-pwa-toolkit
@@ -64,12 +113,49 @@ chrome://inspect and click on "Open Dedicated DevTools for Node"
 node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand jest.spec -t 'test name 3'
 ```
 
-# AAAAA
+# Puppeteer
+
+Update app.
 
 ```bash
 npm run build --dev
 ```
 
+puppeteer.spec.ts
+```typescript
+import { Browser, Page } from 'puppeteer';
+
+declare const browser: Browser;
+declare var page: Page;
+
+describe('Puppeteer Tests - Google', () => {    
+  beforeAll(async () => {
+    await page.goto('https://google.com');
+  });
+
+  it('should display "google" text on page', async () => {
+    await expect(page).toMatch('googlea');
+  });
+});
+
+describe('Puppeteer Tests - Ionic PWA Toolkit', () => {
+  beforeAll(async () => {
+    page = await browser.newPage();
+    await page.goto('http://localhost:3335/');
+  });
+
+  it('should display "Ionic PWA Toolkit" text on page', async () => {
+    await expect(page).toMatch('Ionic PWA Toolkita');
+  });
+});
+```
+
+Run tests
+```bash
+npm test puppeteer.spec
+```
+
+# Problems
     "@types/expect-puppeteer": "2.2.1",
     Has incorrect definition for toMatchElement
     Disallows
