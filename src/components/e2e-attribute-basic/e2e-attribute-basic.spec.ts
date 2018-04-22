@@ -1,10 +1,10 @@
 import { TestWindow } from '@stencil/core/testing';
 import { AttributeBasic } from './e2e-attribute-basic';
 
-import { Browser, Page } from 'puppeteer';
+// import { Browser, Page } from 'puppeteer';
 
-declare const browser: Browser;
-declare var page: Page;
+// declare const browser: Browser;
+// declare var page: Page;
 
 // https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/expect-puppeteer/index.d.ts
 
@@ -76,17 +76,25 @@ describe('attributes', () => {
 //
 describe('puppeteer', () => {
   beforeAll(async () => {
-    page = await browser.newPage();
+    // page = await browser.newPage();
     await page.goto('http://localhost:3335/');
+    await page.waitForSelector('ion-button');
+    await page.waitFor(300); // Wait for animations to finish. 
   });
 
   it('should display "Ionic PWA Toolkit" text on page', async () => {
+    // const page = await browser.newPage();
+    // await page.goto('http://localhost:3335/');
+    // await page.waitForSelector('[data-testid="showModalPageButton"]');
+    // await page.waitForSelector('.single');
     await expect(page).toMatch('Ionic PWA Toolkit');
-    await page.waitForSelector('.single');
-    await expect(page).toMatch('Single');
+    // await page.waitForSelector('.single');
+    // await expect(page).toMatch('Single');
   });
 
   it('toMatchElement', async () => {
+    // await page.goto('http://localhost:3335');
+    // await page.waitForSelector('[data-testid="showModalPageButton"]');
     // const elementHandle = await page.$("e2e-attribute-basic");
     // expect(elementHandle).not.toBe(null);
 
@@ -97,8 +105,8 @@ describe('puppeteer', () => {
     // await expect(page).toMatchElement('e2e-attribute-basic .multiWord', 'Multi Word');
     // await expect(page).toMatchElement('e2e-attribute-basic .customAttr', 'My Custom Attr');    
 
-    const ppp = await page.$('e2e-attribute-basic .customAttr');
-    await expect(ppp).toMatch('My Custom Attr');
+    // const ppp = await page.$('e2e-attribute-basic .customAttr');
+    // await expect(ppp).toMatch('My Custom Attr');
 
     //  console.log('aaa>', aaa);
 
@@ -134,14 +142,32 @@ describe('puppeteer', () => {
   });
 
   it('test name', async () => {
-    const ppp = await page.$('e2e-attribute-basic #data-aa');
-    await ppp.screenshot({ path: 'test/screens/item.png' });
-    
+    const pageA = await browser.newPage();
+    await pageA.goto('http://localhost:3335');
+    await pageA.waitForSelector('e2e-attribute-basic .single'); 
+    const testElementA = await pageA.$eval(
+      'e2e-attribute-basic .single',
+      (el) => el.innerHTML,
+    );
+    console.log('testElementA>', testElementA);
+    expect('Single').toBe(testElementA);
+
+    // await pageA.screenshot({ path: 'test/screens/item.png' });
+    // await pageA.waitForSelector('ion-header');
+    // await page.waitForSelector('e2e-attribute-basic');    
+    // const ppp = await page.$('e2e-attribute-basic #data-aa');
+    //e2e-attribute-basic
+    // const ppp = await pageA.$('e2e-attribute-basic');
+    // await pageA.waitForSelector('#data-aa');    
+    // const ppp = await pageA.$('#data-aa');    
+    // console.log('ppp>', ppp);
+    // await ppp.screenshot({ path: 'test/screens/item.png' });
+    // await pageA.close();
    //  const ggg = await page.evaluate(
    //    () => document.querySelector('e2e-attribute-basic').innerHTML,
    //  );
     // console.log('ggg>', ggg);
     
-  });
+  }, 9000);
   
 });

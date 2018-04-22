@@ -1,3 +1,6 @@
+ e2e
+ npm test --  --maxWorkers=1
+
 # Setup
 
 package.json
@@ -5,6 +8,7 @@ package.json
 ```json
 "devDependencies": {
   "@types/jest": "22.2.3",
+  "@types/jest-environment-puppeteer": "2.2.0",  
   "@types/puppeteer": "1.2.1",
   "jest": "22.4.3",
   "jest-puppeteer": "2.3.0",
@@ -57,6 +61,7 @@ https://github.com/jest-community/vscode-jest
 * https://github.com/ionic-team/stencil
 * https://stenciljs.com/
 * https://facebook.github.io/jest/
+* https://facebook.github.io/jest/docs/en/setup-teardown.html
 * https://github.com/smooth-code/jest-puppeteer
 * https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer
 * https://github.com/jest-community/vscode-jest

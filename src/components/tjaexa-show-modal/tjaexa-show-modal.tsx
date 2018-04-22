@@ -3,6 +3,9 @@ import { Component, Prop, Listen } from '@stencil/core';
 @Component({
   tag: 'tjaexa-show-modal',
   styleUrl: 'tjaexa-show-modal.scss',
+  host: {
+    'data-testid' : "showModalPage"
+  }
 })
 export class ShowModal {
   //
@@ -36,7 +39,7 @@ export class ShowModal {
       </ion-header>,
 
       <ion-content>
-        <ion-button onClick={() => this.showModalForm()}>
+        <ion-button data-testId="showModalFormButton" onClick={() => this.showModalForm()}>
           Show Modal Form
         </ion-button>
       </ion-content>,

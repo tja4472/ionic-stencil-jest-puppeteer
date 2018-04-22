@@ -3,6 +3,9 @@ import { Component, Element } from '@stencil/core';
 @Component({
   tag: 'tjaexa-modal-form',
   styleUrl: 'tjaexa-modal-form.scss',
+  host: {
+    'data-testid' : "modalForm"
+  }  
 })
 export class ModalForm {
   //
@@ -24,13 +27,13 @@ export class ModalForm {
       <ion-header>
         <ion-toolbar color="primary">
           <ion-buttons slot="start">
-            <ion-button onClick={() => this.dismiss()}>Cancel</ion-button>
+            <ion-button data-testId="modalFormCancelButton" onClick={() => this.dismiss()}>Cancel</ion-button>
           </ion-buttons>
 
           <ion-title>Modal Form</ion-title>
 
           <ion-buttons slot="end">
-            <ion-button onClick={() => this.applyFilters()} strong>
+            <ion-button data-testId="modalFormDoneButton" onClick={() => this.applyFilters()} strong>
               Done
             </ion-button>
           </ion-buttons>
