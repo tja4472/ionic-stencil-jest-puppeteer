@@ -16,6 +16,7 @@
     "serve": "stencil-dev-server",
     "start": "npm run dev",
     "test": "jest --no-cache",
+    "test.e2e": "jest --no-cache --config jest.config.e2e.json --maxWorkers=1",    
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
@@ -35,7 +36,6 @@
     "puppeteer": "1.3.0"
   },
   "jest": {
-    "preset": "jest-puppeteer-preset",
     "transform": {
       "^.+\\.(js|ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
     },

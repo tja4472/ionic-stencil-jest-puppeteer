@@ -1,11 +1,14 @@
- e2e
- npm test --  --maxWorkers=1
+e2e
+npm test -- --maxWorkers=1
 
 # Setup
 
 package.json
 
 ```json
+"scripts": {
+    "test.e2e": "jest --no-cache --config jest.config.e2e.json --maxWorkers=1",
+},
 "devDependencies": {
   "@types/jest": "22.2.3",
   "@types/jest-environment-puppeteer": "2.2.0",  
@@ -16,7 +19,6 @@ package.json
   "puppeteer": "1.3.0"
 },
 "jest": {
-  "preset": "jest-puppeteer-preset",
   "transform": {
     "^.+\\.(js|ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
   },
@@ -39,6 +41,20 @@ module.exports = {
     command: 'npm run serve --config stencil.config.e2e.js --no-open',
   },
 };
+```
+
+jest.config.e2e.json
+
+```json
+{
+  "preset": "jest-puppeteer-preset",
+  "transform": {
+    "^.+\\.(js|ts|tsx)$":
+      "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
+  },
+  "testRegex": "(/__e2e-tests__/.*|\\.(e2e-test|e2e-spec))\\.(tsx?|jsx?)$",
+  "moduleFileExtensions": ["ts", "tsx", "js", "json", "jsx"]
+}
 ```
 
 stencil.config.e2e.js
