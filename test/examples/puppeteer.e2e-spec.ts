@@ -1,9 +1,4 @@
-// import { Browser, Page } from 'puppeteer';
-
-// declare const browser: Browser;
-// declare var page: Page;
-
-// jest-puppeteer-preset; page setup and clsoed for each spec file.
+// jest-puppeteer-preset; page setup and closed for each spec file.
 
 describe('Puppeteer Tests - Google', () => {
   beforeAll(async () => {

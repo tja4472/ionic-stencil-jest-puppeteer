@@ -150,10 +150,7 @@ npm run build --dev
 test\examples\puppeteer.spec.ts
 
 ```typescript
-import { Browser, Page } from 'puppeteer';
-
-declare const browser: Browser;
-declare var page: Page;
+// jest-puppeteer-preset; page setup and closed for each spec file.
 
 describe('Puppeteer Tests - Google', () => {
   beforeAll(async () => {
@@ -161,18 +158,19 @@ describe('Puppeteer Tests - Google', () => {
   });
 
   it('should display "google" text on page', async () => {
-    await expect(page).toMatch('googlea');
+    // expect-puppeteer
+    await expect(page).toMatch('google');
   });
 });
 
 describe('Puppeteer Tests - Ionic PWA Toolkit', () => {
   beforeAll(async () => {
     page = await browser.newPage();
-    await page.goto('http://localhost:3335/');
+    await page.goto('http://localhost:3335');
   });
 
   it('should display "Ionic PWA Toolkit" text on page', async () => {
-    await expect(page).toMatch('Ionic PWA Toolkita');
+    await expect(page).toMatch('Ionic PWA Toolkit');
   });
 });
 ```
