@@ -10,7 +10,7 @@ describe('e2e-attribute-basic', () => {
 // jest
 describe('attributes', () => {
   it('should set props from attributes', async () => {
-    const expectedResult = `<!----><div id="data-aa"><div class="single">Single</div><div class="multiWord">Multi Word</div><div class="customAttr">My Custom Attr</div></div>`;
+    const expectedResult = `<div id="data-aa"><div class="single">Single</div><div class="multiWord">Multi Word</div><div class="customAttr">My Custom Attr</div></div>`;
     const window = new TestWindow();
     const element: HTMLUnknownElement = await window.load({
       components: [AttributeBasic],
