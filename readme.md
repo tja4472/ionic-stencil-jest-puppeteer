@@ -1,5 +1,6 @@
 e2e
-npm test -- --maxWorkers=1
+
+aaaa.e2e-spec.ts should not have codelens debug when vscode-jest enabled.
 
 # Setup
 
