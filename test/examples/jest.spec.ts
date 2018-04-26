@@ -1,3 +1,6 @@
+// Force typescript to treat as module.
+export {};
+
 describe('Jest Tests', () => {
   describe('group name 1', () => {
     it('test name 1', async () => {

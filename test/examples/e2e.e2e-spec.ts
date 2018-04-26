@@ -3,6 +3,9 @@
 // declare const browser: Browser;
 // declare var page: Page;
 
+// Force typescript to treat as module.
+export {};
+
 const appUrlBase = 'http://localhost:3335';
 
 const routes = {
