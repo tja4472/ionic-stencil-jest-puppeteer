@@ -81,6 +81,8 @@ https://github.com/jest-community/vscode-jest
 * https://github.com/smooth-code/jest-puppeteer
 * https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer
 * https://github.com/jest-community/vscode-jest
+* https://github.com/GoogleChrome/puppeteer
+* https://github.com/GoogleChrome/puppeteer/releases
 
 # Jest
 
