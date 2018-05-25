@@ -80,6 +80,7 @@ https://github.com/jest-community/vscode-jest
 * https://facebook.github.io/jest/docs/en/setup-teardown.html
 * https://github.com/smooth-code/jest-puppeteer
 * https://github.com/smooth-code/jest-puppeteer/tree/master/packages/expect-puppeteer
+* https://github.com/jest-community/awesome-jest
 * https://github.com/jest-community/vscode-jest
 * https://github.com/GoogleChrome/puppeteer
 * https://github.com/GoogleChrome/puppeteer/releases
